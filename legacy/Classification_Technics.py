@@ -11,7 +11,7 @@ def K_fold_cross_validation_tec(data, model, k=10):
     X = data.drop(['Class'], axis=1)
     y = data['Class']
     scoring = ['accuracy', 'precision', 'recall', 'f1']   
-    scores = cross_validate(model , X, y , cv=10, scoring=scoring)
+    scores = cross_validate(model , X, y , cv=k, scoring=scoring)
 
     # Convert the scores into a DataFrame for better readability
     scores_df = pd.DataFrame(scores)
